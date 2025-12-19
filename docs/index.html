@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مكتبة SUST</title>
+  <style>
+    body{font-family:system-ui,Arial;max-width:900px;margin:24px auto;padding:0 12px}
+    h1{margin:0 0 8px}
+    .box{border:1px solid #ddd;border-radius:12px;padding:12px;margin:12px 0}
+    a{color:#0b57d0;text-decoration:none}
+    a:hover{text-decoration:underline}
+    input{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px}
+    ul{line-height:1.9}
+  </style>
+</head>
+<body>
+  <h1>📚 مكتبة SUST</h1>
+  <p>محاضرات - شيتات - امتحانات</p>
+
+  <div class="box">
+    <input id="q" placeholder="ابحث عن ملف..." oninput="filter()" />
+  </div>
+
+  <div class="box">
+    <h3>روابط سريعة</h3>
+    <ul id="list">
+      <!-- غيّر الروابط دي حسب ملفاتك -->
+      <li><a href="./files/lecture1.pdf">محاضرة 1</a></li>
+      <li><a href="./files/sheet1.pdf">شيت 1</a></li>
+      <li><a href="./files/exam1.pdf">امتحان 1</a></li>
+    </ul>
+  </div>
+
+  <p style="opacity:.7">لإضافة ملفات: ارفعها داخل docs/files ثم أضف رابطها هنا.</p>
+
+<script>
+function filter(){
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  document.querySelectorAll('#list li').forEach(li=>{
+    li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
